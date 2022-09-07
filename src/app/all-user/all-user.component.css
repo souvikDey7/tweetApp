@@ -1,0 +1,23 @@
+body {
+    background-color: #eee
+  }
+  
+  .time {
+    font-size: 9px !important
+  }
+  
+  .socials i {
+    margin-right: 14px;
+    font-size: 17px;
+    color: #d2c8c8;
+    cursor: pointer
+  }
+  
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+    color:rgb(244, 76, 20) 
+  }

@@ -1,0 +1,46 @@
+<section class="bg-transparent">
+    <div class="row d-flex justify-content-center align-items-center h-10">
+        <div class="col-md-10 col-xs-12 col-md-offset-3">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Twitter Feed</h3>
+                </div>
+                <div class="panel-body">
+                <!-- <div class="form-group"> -->
+                    <form [formGroup]="tweet" class="form-group" (ngSubmit)="postTweet()">
+                        <div>
+                        <textarea class="form-control" row="4"  col="60" placeholder="Wirte something here.."
+                                formControlName="post">
+                        </textarea>
+                        <br>
+                        
+                        <button style="position: absolute;right:0;" [disabled]="!tweet.valid"class="float-end btn btn-info btn-sm pull-right waves-effect waves-light"
+                            type="submit">Post
+                        </button>
+                        </div>
+                    </form>
+                <!-- </div> -->
+                    <!-- <textarea class="form-control" placeholder="Enter here for tweet..." rows="3"></textarea> -->
+                    <!-- </div> -->
+                    <!-- <a href="javascript:void(0)" class="btn btn-info btn-sm pull-right waves-effect waves-light">Tweet</a> -->
+                    <div class="clearfix"></div>
+                    <span class="text-success">
+                        <p>{{msg}}</p>
+                    </span>
+                    <hr class="margin-bottom-10 visually-hidden">
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr classs>
+</section>
+
+<!-- 
+
+<form [formGroup]="tweet" (ngSubmit)="postTweet()">
+    <textarea row="4" col="50" placeholder="Wirte something here.." formControlName="post">
+    </textarea>
+    <button [disabled]="!tweet.valid" type="submit">Post
+    </button>
+</form>
+<p>{{msg}}</p> -->

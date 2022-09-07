@@ -1,0 +1,168 @@
+<!-- <form [formGroup]="registerForm" (ngSubmit)="register()" *ngIf="flag==0">
+    First Name:
+    <input type="text" formControlName="firstName" placeholder="firstName"><br>
+    Last Name:
+    <input type="text" formControlName="lastName" placeholder="last name"><br>
+    Email:
+    <input type="email" formControlName="Email" placeholder="Email"><br>
+    Contact Number:
+    <input type="number" formControlName="ContactNumber" placeholder="ContactNumber" pattern="[0-9]{9}"><br>
+    User Id:
+    <input type="text" formControlName="Login_Id" placeholder="UserId"><br>
+    Password:
+    <input type="password" formControlName="Password" placeholder="password" pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{6,8}$/g"><br>
+    ReEnter Password:
+    <input type="text" formControlName="RePassword" placeholder="ReEnter Password"><br>
+    {{error}}
+    <button [disabled]="!registerForm.valid" type="submit">submit
+    </button>
+    {{message}}
+    <button (click)="showLogin()">Already have an account
+        ?</button>
+</form> -->
+
+<section class="vh-50 bg-transparent">
+    <div class="container py-4">
+        <div class="row d-flex justify-content-center align-items-center h-10">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <form [formGroup]="registerForm" (ngSubmit)="register()" *ngIf="flag==0" class="form-floating">
+                            <h2 class="fw-bold mb-2 text-uppercase">Create Account</h2><br>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <span class="input-group flex-nowrap">
+                                            <span class="input-group-text" id="addon-wrapping">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16"
+                                                    height="16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M0 8a8 8 0 1116 0v5.25a.75.75 0 01-1.5 0V8a6.5 6.5 0 10-13 0v5.25a.75.75 0 01-1.5 0V8zm5.5 4.25a.75.75 0 01.75-.75h3.5a.75.75 0 010 1.5h-3.5a.75.75 0 01-.75-.75zM3 6.75C3 5.784 3.784 5 4.75 5h6.5c.966 0 1.75.784 1.75 1.75v1.5A1.75 1.75 0 0111.25 10h-6.5A1.75 1.75 0 013 8.25v-1.5zm1.47-.53a.75.75 0 011.06 0l.97.97.97-.97a.75.75 0 011.06 0l.97.97.97-.97a.75.75 0 111.06 1.06l-1.5 1.5a.75.75 0 01-1.06 0L8 7.81l-.97.97a.75.75 0 01-1.06 0l-1.5-1.5a.75.75 0 010-1.06z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                            <input type="text" formControlName="firstName"
+                                                class="form-control form-control-lg shadow bg-body rounded"
+                                                aria-describedby="addon-wrapping" placeholder="First Name"><br>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <span class="input-group flex-nowrap">
+                                            <span class="input-group-text" id="addon-wrapping">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16"
+                                                    height="16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9.923 5.302a3 3 0 10-3.847 0A2.713 2.713 0 005.9 5.5H2A.75.75 0 002 7h3.3l-.578 5.163-.362 2.997a.75.75 0 101.49.18L6.132 13h3.736l.282 2.34a.75.75 0 101.49-.18l-.362-2.997L10.7 7H14a.75.75 0 000-1.5h-3.899a2.697 2.697 0 00-.178-.198zM9.5 3a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm-.3 4.073l.495 4.427h-3.39l.496-4.427a1.207 1.207 0 012.398 0z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                            <input type="text" formControlName="lastName"
+                                                class="form-control form-control-lg shadow bg-body rounded"
+                                                aria-describedby="addon-wrapping" placeholder="Last Name" required><br>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <span class="input-group flex-nowrap">
+                                    <span class="input-group-text" id="addon-wrapping">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                                            height="24">
+                                            <path fill-rule="evenodd"
+                                                d="M12 2.5a5.5 5.5 0 00-3.096 10.047 9.005 9.005 0 00-5.9 8.18.75.75 0 001.5.045 7.5 7.5 0 0114.993 0 .75.75 0 101.499-.044 9.005 9.005 0 00-5.9-8.181A5.5 5.5 0 0012 2.5zM8 8a4 4 0 118 0 4 4 0 01-8 0z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    <input type="number" formControlName="ContactNumber"
+                                        class="form-control form-control-lg shadow bg-body rounded"
+                                        aria-describedby="addon-wrapping" name="Login Id" placeholder="ContactNumber"
+                                        pattern="[0-9]{10}"><br>
+                                </span>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <span class="input-group flex-nowrap">
+                                    <span class="input-group-text" id="addon-wrapping">@</span>
+                                    <input type="email" formControlName="Email"
+                                        class="form-control form-control-lg shadow bg-body rounded"
+                                        aria-describedby="addon-wrapping" name="Login Id" placeholder="Email"
+                                        required><br>
+                                </span>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <span class="input-group flex-nowrap">
+                                    <span class="input-group-text" id="addon-wrapping">
+                                        <svg width="16" height="16" fill="currentColor" class="bi bi-joystick"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2z" />
+                                            <path
+                                                d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z" />
+                                        </svg>
+                                    </span>
+                                    <input type="text" formControlName="Login_Id"
+                                        class="form-control form-control-lg shadow bg-body rounded"
+                                        aria-describedby="addon-wrapping" placeholder="UserId"><br>
+                                </span>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <span class="input-group flex-nowrap">
+                                    <span class="input-group-text" id="addon-wrapping">
+                                        <svg width="16" height="16" fill="currentColor" class="bi bi-lock-fill"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
+                                        </svg>
+                                    </span>
+                                    <input type="password" formControlName="Password"
+                                        class="form-control form-control-lg shadow bg-body rounded"
+                                        placeholder="password" aria-label="Password"
+                                        aria-describedby="addon-wrapping" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br>
+                                </span>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <span class="input-group flex-nowrap">
+                                    <span class="input-group-text" id="addon-wrapping">
+                                        <svg width="16" height="16" fill="currentColor" class="bi bi-lock-fill"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
+                                        </svg>
+                                    </span>
+                                    <input type="text" formControlName="RePassword"
+                                        class="form-control form-control-lg shadow bg-body rounded"
+                                        placeholder="ReEnter Password" aria-label="Password"
+                                        aria-describedby="addon-wrapping" ><br>
+                                </span>
+                                <span style="color:red;">{{error}}</span>
+                            </div>
+                            <span class="input-group flex-nowrap">
+                                <input [disabled]="!registerForm.valid"
+                                    class="btn btn-success container-fluid shadow-sm bg-body rounded"
+                                    data-bs-toggle="button" type="submit" value="Create account">
+                            </span>
+                            <hr class="my-4">
+                            <div class="text-center">
+                                <a class="link-primary" (click)="showLogin()" style="color:rgb(85, 185, 232);">
+                                    Already have an account
+                                    ?</a>
+                            </div>
+                            <span *ngIf="message.length<17" style="color:red;">{{message}}</span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- At least 1 Uppercase
+At least 1 Lowercase
+At least 1 Number 
+Min 6 chars and Max 12 chars -->

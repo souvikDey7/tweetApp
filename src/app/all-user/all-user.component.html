@@ -1,0 +1,210 @@
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <a (click)="getAllUser(0)">Get all Users
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-search" width="40"
+                    height="40" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                    <path d="M6 21v-2a4 4 0 0 1 4 -4h1"></path>
+                    <circle cx="16.5" cy="17.5" r="2.5"></circle>
+                    <path d="M18.5 19.5l2.5 2.5"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="col-9">
+            <form [formGroup]="search" (ngSubmit)="searchUser(0)" class="d-flex" role="search">
+                <input class="form-control me-2 col-10" type="search" placeholder="write to search.."
+                    formControlName="name" aria-label="Search">
+                <button class="btn btn-outline-success" [disabled]="!search.valid" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+<hr>
+    
+<section [hidden]="sHide==false" class="bg-transparent">
+    <div class="mt-4 mb-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-10">
+                <div aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                      <li *ngIf="currentPage==0" class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                      </li>
+                      <li *ngIf="currentPage!=0" class="page-item">
+                        <a class="page-link" (click)="previous(currentPage-1)">Previous</a>
+                      </li>
+                      <li class="page-item active"><a class="page-link ">{{currentPage+1}}</a></li>
+                      <li  *ngIf="u!=0" class="page-item">
+                        <a class="page-link" (click)="next(currentPage+1)">Next</a>
+                      </li>
+                      <li *ngIf="u==0" class="page-item disabled">
+                        <a class="page-link">Next</a>
+                      </li>
+                    </ul>
+                </div>
+                <p *ngIf="u===0">
+                    No More user data found</p>    
+              
+                <div *ngFor="let i of user[0]">
+                    <div class="feed p-7">
+                        <div class="bg-white border mt-2">
+                            <div>
+                                <div
+                                    class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                                    <div class="d-flex flex-row align-items-center feed-text px-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-user-circle" width="36" height="36"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                            <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855">
+                                            </path>
+                                        </svg>
+                                        <div class="d-flex event-wrap flex-column flex-wrap ml-2">
+                                            <h2><a>{{i['UserId']}}</a></h2>
+                                            <span class="text-black-50 time">user Id</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex event-wrap flex-column flex-wrap ml-2">
+                                        <a>{{i['First Name']}}</a>
+                                        <span class="text-black-50 time">First Name</span>
+                                    </div>
+                                    <div class="d-flex event-wrap flex-column flex-wrap ml-2">
+                                        <a>{{i['last name']}}</a>
+                                        <span class="text-black-50 time">last name</span>
+                                    </div>
+                                    <div class="d-flex event-wrap flex-column flex-wrap ml-2">
+                                        <div>
+                                            <span class="material-symbols-outlined">
+                                                Mail
+                                            </span>
+                                        </div>
+                                            
+                                            <a>{{i['Email']}}</a>
+                                    </div>
+
+                                    <!-- <div class="feed-icon px-2">
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      <hr>        
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section [hidden]="uHide==false" class="bg-transparent">
+    <div class="mt-4 mb-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-10">
+                <div aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                      <li *ngIf="currentSearch==0" class="page-item disabled">
+                        <a class="page-link">Previous</a>
+                      </li>
+                      <li *ngIf="currentSearch!=0" class="page-item">
+                        <a class="page-link" (click)="previousSearch(currentSearch-1)">Previous</a>
+                      </li>
+                      <li class="page-item active"><a class="page-link ">{{currentSearch+1}}</a></li>
+                      <li  *ngIf="h!=0" class="page-item">
+                        <a class="page-link" (click)="nextSearch(currentSearch+1)">Next</a>
+                      </li>
+                      <li *ngIf="h==0" class="page-item disabled">
+                        <a class="page-link">Next</a>
+                      </li>
+                    </ul>
+                </div>
+                <p *ngIf="h===0">
+                    No More user data found</p>
+                <div *ngFor="let i of aUser[0];index as j">                    
+                    <div class="feed p-7">
+                        <div class="bg-white border mt-2">
+                            <div>
+                                <div
+                                    class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                                    <div class="d-flex flex-row align-items-center feed-text px-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-user-circle" width="36" height="36"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                            <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855">
+                                            </path>
+                                        </svg>
+                                        <div class="d-flex event-wrap flex-column flex-wrap ml-2">
+                                            <h2><a>{{i['UserId']}}</a></h2>
+                                            <span class="text-black-50 time">user Id</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex event-wrap flex-column flex-wrap ml-2">
+                                        <a>{{i['First Name']}}</a>
+                                        <span class="text-black-50 time">First Name</span>
+                                    </div>
+                                    <div class="d-flex event-wrap flex-column flex-wrap ml-2">
+                                        <a>{{i['last name']}}</a>
+                                        <span class="text-black-50 time">last name</span>
+                                    </div>
+                                    <div class="d-flex event-wrap flex-column flex-wrap ml-2">
+                                        <div>
+                                            <span class="material-symbols-outlined">
+                                                Mail
+                                            </span>
+                                        </div>
+                                            
+                                            <a>{{i['Email']}}</a>
+                                    </div>
+
+                                    <!-- <div class="feed-icon px-2">
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <p>all-user works!</p>
+<button (click)="getAllUser()">Get All User</button>
+
+<form [formGroup]="search" (ngSubmit)="searchUser()">
+    <input type="text" placeholder="write to search.." formControlName="name">
+    <button [disabled]="!search.valid" type="submit">Post
+    </button>
+</form> -->
+
+<!-- <table [hidden]="sHide==false">
+    <tr>
+        <th>User</th>
+    </tr>
+    <div *ngFor="let i of user[0]">
+        <tr>{{i}}</tr>
+    </div>
+</table> -->
+
+<!-- <table [hidden]="uHide==false">
+    <tr>
+        <th>Specific User</th>
+    </tr>
+    <div *ngFor="let i of aUser[0]">
+        <tr>{{i}}</tr>
+    </div>
+</table> -->
