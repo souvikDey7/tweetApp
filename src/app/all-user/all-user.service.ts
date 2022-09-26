@@ -10,7 +10,7 @@ export class AllUserService {
   constructor(private https: HttpClient, private sessionStorage: SeasionStorageService) { }
 
   getAllUserBySearchedUserName(userId: string,pageNo: number) {
-    let url = "http://54.157.36.31:8083/api/v1.0/tweets/user/search/" + userId
+    let url = "http://18.212.6.131:8083/api/v1.0/tweets/user/search/" + userId
     let header = new HttpHeaders();
     header = header.set('page',pageNo.toString())
     header = header.set('Content-Type', 'application/json; charset=UTF-8 ')
@@ -21,7 +21,7 @@ export class AllUserService {
 
   getAllUser(pageNo:number) {
 
-    let url = "http://54.157.36.31:8083/api/v1.0/tweets/users/all"
+    let url = "http://18.212.6.131:8083/api/v1.0/tweets/users/all"
     let header = new HttpHeaders();
     header = header.set('page',pageNo.toString())
     header = header.set('Content-Type', 'application/json; charset=UTF-8 ')

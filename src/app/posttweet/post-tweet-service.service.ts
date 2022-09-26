@@ -9,7 +9,7 @@ export class PostTweetServiceService {
 
   constructor(private http: HttpClient, private sessionStorage: SeasionStorageService) { }
 
-  url = "http://54.157.36.31:8083/api/v1.0/tweets/"
+  url = "http://18.212.6.131:8083/api/v1.0/tweets/"
 
 
   uploadTweet1(data: any) {

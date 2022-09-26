@@ -9,7 +9,7 @@ export class AlltweetService {
 
   constructor(private https: HttpClient, private sessionStorage: SeasionStorageService) { }
 
-  url = "http://54.157.36.31:8083/api/v1.0/tweets/all"
+  url = "http://18.212.6.131:8083/api/v1.0/tweets/all"
 
   getAllTweet(pageNo: number) {
     let header = new HttpHeaders();
@@ -23,7 +23,7 @@ export class AlltweetService {
 
   postReply(postId: any, body: any) {
     let header = new HttpHeaders();
-    let url = "http://54.157.36.31:8083/api/v1.0/tweets/" + this.sessionStorage.getKey('userId') + '/reply/' + postId
+    let url = "http://18.212.6.131:8083/api/v1.0/tweets/" + this.sessionStorage.getKey('userId') + '/reply/' + postId
     header = header.set('Content-Type', 'application/json; charset=UTF-8 ')
     let token = this.sessionStorage.getKey('token')
     header = header.set('Token-key', (token === null) ? '' : token)
@@ -32,7 +32,7 @@ export class AlltweetService {
 
   postLike(postId: any, flag: boolean) {
     let header = new HttpHeaders();
-    let url = "http://54.157.36.31:8083/api/v1.0/tweets/" + this.sessionStorage.getKey('userId') + '/like/' + postId + "?flag=" + flag
+    let url = "http://18.212.6.131:8083/api/v1.0/tweets/" + this.sessionStorage.getKey('userId') + '/like/' + postId + "?flag=" + flag
     header = header.set('Content-Type', 'application/json; charset=UTF-8 ')
     let token = this.sessionStorage.getKey('token')
     header = header.set('Token-key', (token === null) ? '' : token)

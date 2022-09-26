@@ -1,0 +1,8 @@
+{
+  "/echo":{
+    "target":"http://44.203.2.162:8083",
+    "secure":false,
+    "changeOrigin":true,
+    "logLevel":"debug"
+  }
+}

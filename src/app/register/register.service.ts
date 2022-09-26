@@ -8,7 +8,7 @@ export class RegisterService {
 
   constructor(private http: HttpClient) { }
  
-  url = "http://54.157.36.31:8083/api/v1.0/tweets/register/"
+  url = "http://18.212.6.131:8083/api/v1.0/tweets/register/"
  
   register(UserDetails: any) {
     return this.http.post(this.url, UserDetails, {
